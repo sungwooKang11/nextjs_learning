@@ -22,8 +22,11 @@ export default function Home({results}) {
     <div className="container">
       <Seo title="Home" />
       {results?.map((movie) => (
-        <Link href={`/movies/${movie.id}`} key={movie.id}>
-          <div className="movie" key={movie.id}>
+          <div 
+            onClick={() => onClick(movie.id, movie.original_title)} 
+            className="movie" 
+            key={movie.id}
+          >
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
             <h4>
               <Link
@@ -39,7 +42,6 @@ export default function Home({results}) {
               </Link>
             </h4>
           </div>
-        </Link>
       ))
       
     }
